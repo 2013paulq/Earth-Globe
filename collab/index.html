@@ -10,7 +10,7 @@
       body {
         margin: 0;
         padding: 0;
-        background: transparent url(/Earth-Globe/test/loading.gif) center center no-repeat;
+        background: transparent url(/Earth-Globe/collab/loading.gif) center center no-repeat;
         color: #ffffff;
         font-family: sans-serif;
         font-size: 13px;
@@ -95,7 +95,7 @@
         position: absolute;
         bottom: 15px;
         left: 20px;
-        background: url(/Earth-Globe/test/ce.png);
+        background: url(/Earth-Globe/collab/ce.png);
       }
 
 
@@ -123,10 +123,10 @@
     <span>This is a Chrome Experiment</span>
   </a>
 
-  <script type="text/javascript" src="/Earth-Globe/test/third-party/Detector.js"></script>
-  <script type="text/javascript" src="/Earth-Globe/test/third-party/three.min.js"></script>
-  <script type="text/javascript" src="/Earth-Globe/test/third-party/Tween.js"></script>
-  <script type="text/javascript" src="/Earth-Globe/test/globe.js"></script>
+  <script type="text/javascript" src="/Earth-Globe/collab/third-party/Detector.js"></script>
+  <script type="text/javascript" src="/Earth-Globe/collab/third-party/three.min.js"></script>
+  <script type="text/javascript" src="/Earth-Globe/collab/third-party/Tween.js"></script>
+  <script type="text/javascript" src="/Earth-Globe/collab/globe.js"></script>
   <script type="text/javascript">
 
     if(!Detector.webgl){
@@ -165,7 +165,7 @@
       
       
       xhr = new XMLHttpRequest();
-      xhr.open('GET', '/Earth-Globe/test/groups.json', true);
+      xhr.open('GET', '/Earth-Globe/collab/groups.json', true);
       xhr.onreadystatechange = function(e) {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
