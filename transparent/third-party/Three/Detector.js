@@ -28,11 +28,11 @@ Detector = {
       domElement.innerHTML = window.WebGLRenderingContext ? [
         'Sorry, your graphics card doesn\'t support <a href="http://khronos.org/webgl/wiki/Getting_a_WebGL_Implementation">WebGL</a>'
       ].join( '\n' ) : [
-        'Reload globe <a href="http://www.asimpleresponse.org/#!master-reloaded/jsi1z">Here</a><br/>',
-        'Or please try with',
+        'Sorry, your browser/ mobile device doesn\'t support <a href="http://khronos.org/webgl/wiki/Getting_a_WebGL_Implementation">WebGL</a><br/>',
+        'Please try with',
         '<a href="http://www.google.com/chrome">Chrome</a>, ',
-        '<a href="http://www.mozilla.com/en-US/firefox/new/">Firefox</a> or',
-        '<a href="https://www.microsoft.com/en-us/download/details.aspx?id=48126">Edge</a>'
+        '<a href="http://www.mozilla.com/en-US/firefox/new/">Firefox 4</a> or',
+        '<a href="http://nightly.webkit.org/">Webkit Nightly (Mac)</a>'
       ].join( '\n' );
 
     }
