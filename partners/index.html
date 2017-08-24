@@ -10,7 +10,7 @@
       body {
         margin: 0;
         padding: 0;
-        background: transparent url(/Earth-Globe/shell/loading.gif) center center no-repeat;
+        background: transparent url(/Earth-Globe/partners/loading.gif) center center no-repeat;
         color: #ffffff;
         font-family: sans-serif;
         font-size: 13px;
@@ -46,7 +46,7 @@
         position: absolute;
         bottom: 15px;
         left: 20px;
-        background: url(/Earth-Globe/shell/ce.png);
+        background: url(/Earth-Globe/partners/ce.png);
       }
 	  
 	  #fallback {
@@ -71,16 +71,16 @@
 
   <div id="container">
 	<div id='fallback'>
-		<img src='/Earth-Globe/shell/blue.png' />
+		<img src='/Earth-Globe/partners/blue.png' />
 	</div>
   </div>
 
   
 
-  <script type="text/javascript" src="/Earth-Globe/shell/third-party/Detector.js"></script>
-  <script type="text/javascript" src="/Earth-Globe/shell/third-party/three.min.js"></script>
-  <script type="text/javascript" src="/Earth-Globe/shell/third-party/Tween.js"></script>
-  <script type="text/javascript" src="/Earth-Globe/shell/globe.js"></script>
+  <script type="text/javascript" src="/Earth-Globe/partners/third-party/Detector.js"></script>
+  <script type="text/javascript" src="/Earth-Globe/partners/third-party/three.min.js"></script>
+  <script type="text/javascript" src="/Earth-Globe/partners/third-party/Tween.js"></script>
+  <script type="text/javascript" src="/Earth-Globe/partners/globe.js"></script>
   <script type="text/javascript">
   
 	function showFallback(){
@@ -96,16 +96,41 @@
       var container = document.getElementById('container');
       var globe = new DAT.Globe(container);
 
+      console.log(globe);
       var i, tweens = [];
       
+      var settime = function(globe, t) {
+        return function() {
+          new TWEEN.Tween(globe).to({time: t/years.length},500).easing(TWEEN.Easing.Cubic.EaseOut).start();
+        };
+      };
+      
+      var xhr;
       TWEEN.start();
-            globe.renderIss();
+      
+      
+      xhr = new XMLHttpRequest();
+      xhr.open('GET', '/Earth-Globe/partners/groups.json', true);
+      xhr.onreadystatechange = function(e) {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            window.data = data;
+            for (i=0;i<data.length;i++) {
+              globe.addData(data[i][1], {format: 'magnitude', name: data[i][0], animated: true});
+            }
+            globe.createPoints();
+            settime(globe,0)();
             globe.animate();
             document.body.style.backgroundImage = 'none'; // remove loading
-      
+          }
+        }
+      };
+      xhr.send(null);
     }
 
   </script>
+
   </body>
 
 </html>
