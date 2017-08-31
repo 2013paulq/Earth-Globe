@@ -71,7 +71,7 @@
 
   <div id="container">
 	<div id='fallback'>
-		<img src='/Earth-Globe/shell/blue.png' />
+		<img src='/Earth-Globe/shell/backup.gif' />
 	</div>
   </div>
 
@@ -87,8 +87,8 @@
 		document.getElementById('fallback').style.display = 'block';
 	}
 
-    //if(!Detector.webgl || true){
-	if(!Detector.webgl){
+    if(!Detector.webgl || true){
+	//if(!Detector.webgl){
       showFallback();
     } else {
 
