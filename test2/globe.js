@@ -21,7 +21,7 @@ DAT.Globe = function(container, opts){
 			c.setHSL(( 0.6 - ( x * 0.5 ) ), 1.0, 0.5);
 			return c;
 		};
-	var imgDir = opts.imgDir || '/Earth-Globe/test2/';
+	var imgDir = opts.imgDir || '/test2/';
 
 	var Shaders = {
 		'earth': {
@@ -85,7 +85,7 @@ DAT.Globe = function(container, opts){
 	var PI_HALF = Math.PI / 2;
 
 	var issMaterial = new THREE.SpriteMaterial({
-		map: new THREE.TextureLoader().load('/iss_icon.png'),
+		map: new THREE.TextureLoader().load('/Earth-Globe/test2/iss.png'),
 		color: 0xffffff,
 		fog: true
 	});
@@ -127,7 +127,7 @@ DAT.Globe = function(container, opts){
 		shader = Shaders['earth'];
 		uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-		uniforms['texture'].value = new THREE.TextureLoader().load('/test/world.jpg');
+		uniforms['texture'].value = new THREE.TextureLoader().load('/Earth-Globe/test2/world.jpg');
 
 		material = new THREE.ShaderMaterial({
 			uniforms: uniforms,
@@ -162,7 +162,7 @@ DAT.Globe = function(container, opts){
 
 		point = new THREE.Mesh(geometry);
 
-		renderer = new THREE.WebGLRenderer({antialias: true});
+		renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 		renderer.setSize(w, h);
 
 		renderer.domElement.style.position = 'absolute';
@@ -298,13 +298,13 @@ DAT.Globe = function(container, opts){
 	function renderIss(){
 
 		// ISS Icon size
-		iss.scale.x = 32;
-		iss.scale.y = 16;
+		iss.scale.x = 0;
+		iss.scale.y = 0;
 
 		updateIssPosition();
 
 		// How often to update ISS position, milliseconds
-		setInterval(updateIssPosition, 5000);
+		setInterval(updateIssPosition, 50000000);
 		scene.add(iss);
 	}
 
@@ -450,7 +450,7 @@ DAT.Globe = function(container, opts){
         // Earth rotation speed
 		// Milliseconds in a day - 86400000
 		if (timestamp) {
-			target.x -= (timestamp - previousTimestamp)*6/864000;
+			target.x -= (timestamp - previousTimestamp)*6/86400;
 			previousTimestamp = timestamp;
 		}
 
