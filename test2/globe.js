@@ -448,7 +448,7 @@ DAT.Globe = function(container, opts){
 		distance += (distanceTarget - distance) * 0.3;
 
         // Earth rotation speed
-		// Milliseconds in a day - 86400000
+		// Milliseconds in a day - 8640000
 		if (timestamp) {
 			target.x -= (timestamp - previousTimestamp)*6/86400;
 			previousTimestamp = timestamp;
