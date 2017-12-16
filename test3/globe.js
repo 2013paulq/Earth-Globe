@@ -127,7 +127,7 @@ DAT.Globe = function(container, opts){
 		shader = Shaders['earth'];
 		uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-		uniforms['texture'].value = new THREE.TextureLoader().load('/Earth-Globe/test3/world.jpg');
+		uniforms['texture'].value = new THREE.TextureLoader().load('/Earth-Globe/test3/world.gif');
 
 		material = new THREE.ShaderMaterial({
 			uniforms: uniforms,
@@ -450,7 +450,7 @@ DAT.Globe = function(container, opts){
         // Earth rotation speed
 		// Milliseconds in a day - 86400000
 		if (timestamp) {
-			target.x -= (timestamp - previousTimestamp)*6/100000;
+			target.x -= (timestamp - previousTimestamp)*6/300000;
 			previousTimestamp = timestamp;
 		}
 
