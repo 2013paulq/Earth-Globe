@@ -450,7 +450,7 @@ DAT.Globe = function(container, opts){
         // Earth rotation speed
 		// Milliseconds in a day - 86400000
 		if (timestamp) {
-			target.x -= (timestamp - previousTimestamp)*6/100000;
+			target.x -= (timestamp - previousTimestamp)*6/55000;
 			previousTimestamp = timestamp;
 		}
 
